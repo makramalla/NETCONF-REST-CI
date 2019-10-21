@@ -1,0 +1,74 @@
+version: 2
+allowInsecure: true
+variables:
+  exampleData: "This is expected to be sent back as part of response body."
+requests:
+  login:
+    request:
+      url: <$ Env("NUAGE_URL") $>/tron/api/v1/tokens
+      method: POST
+      postData:
+        mimeType: application/json
+        text:
+          username: <$ Env("NUAGE_USERNAME") $>
+          password: <$ Env("NUAGE_PASSWORD") $>
+    log: <$ Env("LOG_STREST") $>
+    validate:
+      - jsonpath: status 
+        expect: 201
+  enterprise_alarms:
+    request:
+      url: <$ Env("NUAGE_URL") $>/enterprises/id/alarms
+      method: GET
+      headers:
+      - name: Authorization
+        value: Bearer <$ login.content.token $>
+    log: <$ Env("LOG_STREST") $>
+  RedundancyGroups_alarms:
+    request:
+      url: <$ Env("NUAGE_URL") $>/redundancygroups/id/alarms
+      method: GET
+      headers:
+      - name: Authorization         
+        value: Bearer <$ login.content.token $>
+    log: <$ Env("LOG_STREST") $>
+  services_alarms:
+    request:
+      url: <$ Env("NUAGE_URL") $>/services/id/alarms
+      method: GET
+      headers:
+      - name: Authorization         
+        value: Bearer <$ login.content.token $>
+    log: <$ Env("LOG_STREST") $>
+  vlan_alarms:
+    request:
+      url: <$ Env("NUAGE_URL") $>/vlans/id/alarms
+      method: GET
+      headers:
+      - name: Authorization         
+        value: Bearer <$ login.content.token $>
+    log: <$ Env("LOG_STREST") $>
+  domains_alarms:
+    request:
+      url: <$ Env("NUAGE_URL") $>/domains/id/alarms
+      method: GET
+      headers:
+      - name: Authorization         
+        value: Bearer <$ login.content.token $>
+    log: <$ Env("LOG_STREST") $>
+  gateways_alarms:
+    request:
+      url: <$ Env("NUAGE_URL") $>/gateways/id/alarms
+      method: GET
+      headers:
+      - name: Authorization         
+        value: Bearer <$ login.content.token $>
+    log: <$ Env("LOG_STREST") $>
+  containers_alarms:
+    request:
+      url: <$ Env("NUAGE_URL") $>/containers/id/alarms
+      method: GET
+      headers:
+      - name: Authorization         
+        value: Bearer <$ login.content.token $>
+    log: <$ Env("LOG_STREST") $>

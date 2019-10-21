@@ -1,0 +1,11 @@
+<get>
+  <filter type="subtree">
+    <system:waveserver-system xmlns:system="urn:ciena:params:xml:ns:yang:ciena-ws:ciena-waveserver-system">
+      <system:client-config>
+        <system:ntp/>
+      </system:client-config>
+    </system:waveserver-system>
+  </filter>
+</get>
+
+

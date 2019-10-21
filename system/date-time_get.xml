@@ -1,0 +1,12 @@
+<get-config>
+  <source>
+    <running/>
+  </source>
+  <filter type="subtree">
+    <system:waveserver-system xmlns:system="urn:ciena:params:xml:ns:yang:ciena-ws:ciena-waveserver-system">
+      <system:time-config/>
+    </system:waveserver-system>
+  </filter>
+</get-config>
+
+

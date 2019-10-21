@@ -1,0 +1,19 @@
+<edit-config>
+    <target>
+        <running/>
+    </target>
+    <config>
+        <waveserver-system xmlns="urn:ciena:params:xml:ns:yang:ciena-ws:ciena-waveserver-system"
+                            xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx">
+        <time-config>
+            <date>2018-09-05</date>
+            <time>14:07:27</time>
+            <time-offset>0.0</time-offset>
+            <time-stamp>local</time-stamp>
+        </time-config>
+        </waveserver-system>
+    </config>
+</edit-config>
+
+
+

@@ -1,0 +1,17 @@
+<edit-config>
+    <target>
+      <running/>
+    </target>
+    <config>
+      <waveserver-system xmlns="urn:ciena:params:xml:ns:yang:ciena-ws:ciena-waveserver-system"
+                         xmlns:ncx="http://netconfcentral.org/ns/yuma-ncx">
+        <lamp-test>
+          <admin-state>enabled</admin-state>
+          <target-type>chassis</target-type>
+          <timeout>15</timeout>
+        </lamp-test>
+      </waveserver-system>
+    </config>
+</edit-config>
+
+

@@ -1,0 +1,9 @@
+<get>
+  <filter type="subtree">
+    <alarm:alarms xmlns:alarm="MISSING-URL">
+      <alarm:active/>
+    </alarm:alarms>
+  </filter>
+</get>
+
+

@@ -1,10 +1,10 @@
-# CEC-MCP-Curated_stREST
+# REST-CI
 
-Curated REST calls for MCP.
+Curated REST calls CI.
+This CI uses a REST API client called [strest] (https://github.com/eykrehbein/strest)
+The same procedure could also be created using ansible 
 
-## Pre-Requirements:
 
-[stREST](https://github.com/eykrehbein/strest/blob/master/README.md)
 
 ```bash
 sudo apt install nodejs npm
@@ -16,29 +16,74 @@ npm i -g @strest/cli
 
 ## Usage
 
-The Dynamic FRE creation tests are designed to create services on any MCP server.  Assumptions:
-
-* Available CCMD's
-
-1. Make your reservation on [CEC](https://developer.ciena.com/) or use your own server.
-
-    * Recommended CEC environment: BP-MCP L0 + L2 + Waveserver
-
 1. Set environment variables
 
     ```bash
-    export MCP_SERVER=https://your.server.ip
-    export MCP_USERNAME=admin
-    export MCP_PASSWORD=adminpw
+    export NUAGE_URL=https://your.server.ip
+    export NUAGE_USERNAME=admin
+    export NUAGE_PASSWORD=adminpw
     export LOG_STREST=true
     ```
 
 1. Execute tests
 
     ```bash
-    strest FRE/L0-6500_dynamic/ --output curl -s
-    strest FRE/fre.strest.yml --output curl -s
-    strest TPE/ --output curl -s
-    strest PM/ --output curl -s
-    strest Alarms/ --output curl -s
+    strest alarms/alarms.strest.yml--output curl -s
+ 
     ```
+
+# NETCONF-CI
+
+Curated NETCONF calls CI.
+This CI uses a NETCONF API Client called [netconf-console] (https://pypi.org/project/netconf-console/)
+
+## Dependencies
+
+[netconf-console](https://pypi.org/project/netconf-console/)
+
+```bash
+pip install ncclient
+pip install netconf-console
+```
+
+## Usage
+
+```bash
+NETCONF_HOST=<URL>
+NETCONF_USER=<USERNAME>
+NETCONF_PW=<PASSWORD>
+```
+### Hello
+
+Quick test to make sure you are connecting
+
+```bash
+# Hello
+netconf-console --host=$NETCONF_HOST --user=$NETCONF_USER --password=$NETCONF_PW --port=830 --hello
+```
+
+### Date and Time  
+rpc located: [system](system)
+```bash
+# Set Date and Time  
+netconf-console --host=$NETCONF_HOST --user=$NETCONF_USER --password=$NETCONF_PW --port=830 --rpc=system/date-time_set.xml
+# Get Date and Time  
+netconf-console --host=$NETCONF_HOST --user=$NETCONF_USER --password=$NETCONF_PW --port=830 --rpc=system/date-time_get.xml
+```
+
+### Alarms
+
+Commands print their output to alarms.xml
+
+rpc located: [alarm](alarm)
+
+```bash
+# Get Alarms
+netconf-console --host=$NETCONF_HOST --user=$NETCONF_USER --password=$NETCONF_PW --port=830 --rpc=netconf-alarm/get-alarms.xml > output/alarms.xml
+# Get Alarms Active
+netconf-console --host=$NETCONF_HOST --user=$NETCONF_USER --password=$NETCONF_PW --port=830 --rpc=netconf-alarm/get-alarm-active.xml > output/alarms-act.xml
+# Get Alarms History
+netconf-console --host=$NETCONF_HOST --user=$NETCONF_USER --password=$NETCONF_PW --port=830 --rpc=netconf-alarm/get-alarm-history.xml > output/alarms-his.xml
+# Get Alarms Statistics
+netconf-console --host=$NETCONF_HOST --user=$NETCONF_USER --password=$NETCONF_PW --port=830 --rpc=netconf-alarm/get-alarm-statistics.xml > output/alarms-st.xml
+```
