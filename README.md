@@ -37,6 +37,8 @@ npm i -g @strest/cli
 Curated NETCONF calls CI.
 This CI uses a NETCONF API Client called [netconf-console] (https://pypi.org/project/netconf-console/)
 
+Alternatively you can use the following *docker container*: [mmakramalla/netconf-console] (https://cloud.docker.com/u/mmakramalla/repository/docker/mmakramalla/netconf-console)
+
 ## Dependencies
 
 [netconf-console](https://pypi.org/project/netconf-console/)
