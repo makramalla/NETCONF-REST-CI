@@ -1,7 +1,7 @@
 # REST-CI
 
 Curated REST calls CI.
-This CI uses a REST API client called [strest] (https://github.com/eykrehbein/strest)
+This CI uses a REST API client called [strest](https://github.com/eykrehbein/strest)
 The same procedure could also be created using ansible 
 
 
@@ -35,9 +35,9 @@ npm i -g @strest/cli
 # NETCONF-CI
 
 Curated NETCONF calls CI.
-This CI uses a NETCONF API Client called [netconf-console] (https://pypi.org/project/netconf-console/)
+This CI uses a NETCONF API Client called [netconf-console](https://pypi.org/project/netconf-console/)
 
-Alternatively you can use the following *docker container*: [mmakramalla/netconf-console] (https://cloud.docker.com/u/mmakramalla/repository/docker/mmakramalla/netconf-console)
+Alternatively you can use the following **docker container**: [mmakramalla/netconf-console](https://hub.docker.com/r/mmakramalla/netconf-console)
 
 ## Dependencies
 
