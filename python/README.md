@@ -19,21 +19,4 @@ Another alternative would be using  [urlib](https://docs.python.org/3/library/ur
     python rest-python.py
     ```
 
-## NETCONF API
-
-There are several netconf libraries for python.
-The one I found pretty straight forward and effective is **[ncclient](https://ncclient.readthedocs.io/en/latest/#)**.
-
-There are several examples of usage documented in [their documentation](https://ncclient.readthedocs.io/en/latest/api.html)
-
-
-
-
-### Pip Install [ncclient](https://pypi.org/project/ncclient/)
-
-1. Set environment variables
-
-    ```bash
-    pip install ncclient
-    ```
 
