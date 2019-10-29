@@ -3,7 +3,7 @@ from urlparse import urlunparse
 from requests.auth import HTTPBasicAuth
 import json
 
-def simple_get_request(host, username, password, resource):
+def sample_get_request(host, username, password, resource):
     """
     A simple Get Request. GET the value from the URL.
     :param host: The URL to the server
