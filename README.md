@@ -5,7 +5,6 @@ This CI uses a REST API client called [strest](https://github.com/eykrehbein/str
 The same procedure could also be created using ansible 
 
 
-
 ```bash
 sudo apt install nodejs npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
